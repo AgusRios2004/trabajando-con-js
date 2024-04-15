@@ -1,12 +1,17 @@
 //Realizar un programa que genere un numero aletorio del 1 al 1000 y que la maquina lo adivine
-let min = parseFloat(prompt("Ingrese el numero minimo: "));
-let max = parseFloat(prompt("Ingrese el numero maximo: "));
-let counter = 0;
+let randomNum = 0;
+let min = 0;
+let max = 0;
+let counter = 0; //contador par almacenar la cantidad de intentos que hace la maquina
+let prediction = 0;
+min = parseFloat(prompt("Ingrese el numero minimo: "));
+max = parseFloat(prompt("Ingrese el numero maximo: "));
+counter = 0;
 //funcion que devuelve un numero aletorio
 function randomNumFunction(min,max){
     return Math.floor(Math.random() * (max * min) + min);
 }
-let randomNum = randomNumFunction(min,max); //almacenamos el numero aletorio
+randomNum = randomNumFunction(min,max); //almacenamos el numero aletorio
 console.log(randomNum)
 //funcion para buscar el numero aletorio
 function binarySearch(min,max){
@@ -27,7 +32,7 @@ function binarySearch(min,max){
     }
     return -1
 }
-let prediction = binarySearch(min,max);
+prediction = binarySearch(min,max);
 //mostramos por pantalla el acierto de la maquina
 if(prediction != -1){
     console.log("La maquina acerto el numero y este es: "+prediction+" .Tardo un total de: "+counter+" intentos")
